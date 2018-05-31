@@ -20,7 +20,7 @@ public class Example {
 		
 		Cat cat = new Cat();
 		cat.setName("miao");
-		cat.setGender("male  猫说");
+		cat.setGender("male  猫说 你说");
 		
         return cat; 
     }
