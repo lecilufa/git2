@@ -1,0 +1,5 @@
+1. 教程    http://www.yiibai.com/spring-boot/
+2. 改端口看application.properties
+3. 热部署看  
+4. 介绍性的文章  http://blog.csdn.net/xlgen157387/article/details/52830071 
+5. 配置文件的调用  http://www.cnblogs.com/gczr/p/6692054.html

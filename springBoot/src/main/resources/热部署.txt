@@ -1,0 +1,56 @@
+Spring Boot 实现热部署
+spring Boot 实现热部署很简单，分别为：
+    使用 Spring Loaded
+    使用 spring-boot-devtools
+	
+共有3种方式	
+	
+1.
+找到 main 方法， run as – Java application (推荐方式)
+
+手动下载springloaded.jar包，保存至任意目录，右键项目选择：Run Configurations，在Arguments的tab里面设置VM参数如下：
+-javaagent:E:\workspace\springloaded-1.2.3.RELEASE.jar -noverify          绝对路径
+-javaagent:${project_loc}\lib\springloaded.jar -noverify                  ${project_loc}  + 相对项目的路径
+这里地址为刚刚保存的地址，接下来选择Run运行，热更新即可实现
+	
+	
+
+2. 
+Maven启动方式（mvn spring-boot:run 启动）
+在 POM 文件中添加依赖
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <dependencies>
+                <dependency>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>springloaded</artifactId>
+                    <version>1.2.6.RELEASE</version>
+                </dependency>
+            </dependencies>
+        </plugin>
+    </plugins>
+</build>
+
+
+添加完毕，启动项目
+注意：这种配置启动不能直接运行 main 方法了，需要使用mvn spring-boot:run 启动
+
+这种方式只能在命令行启动，用Ctrl+C去关闭服务器。
+如果在Eclipse里面启动，则没法去关闭，因此不推荐
+
+
+
+
+
+3. 
+spring-boot-devtools
+这种方式每次改代码都会自动重启服务器，不太好。
+pom.xml直接添加依赖：
+<dependency>
+     <groupId>org.springframework.boot</groupId>
+     <artifactId>spring-boot-devtools</artifactId>
+     <optional>true</optional>
+</dependency>
