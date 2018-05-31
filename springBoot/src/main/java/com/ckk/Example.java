@@ -12,7 +12,7 @@ public class Example {
 
 	@RequestMapping("/hi")
     String home() {
-        return "Hello World! ";
+        return "Hello World! Les";
     }
 	
 	@RequestMapping("/json")
