@@ -11,7 +11,7 @@ public class Cat {
 	
 	public Cat() {
 		kids.add("miya");
-		kids.add("萌猫");
+		kids.add("萌猫~");
 	}
 	
 	
